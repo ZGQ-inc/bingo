@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎯 宾果工坊 · bingo.zgqinc.gq</title>
+  <title>互联网宾果个人收集</title>
   <meta name="description" content="互联网宾果游戏个人收集与在线打卡工具，收集整理网络流行宾果、罐子量表与调查清单，支持原图无损标记、液体滑动与自定义导出。">
-  <meta property="og:title" content="宾果工坊 · bingo.zgqinc.gq">
+  <meta property="og:title" content="互联网宾果个人收集">
   <meta property="og:site_name" content="ZGQ Inc.">
+
+  <!-- Favicon (Material Bingo Card) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
 
   <!-- Material Symbols & Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,10 +28,27 @@
   <header class="app-header" id="app-header">
     <div class="header-inner">
       <div class="brand" role="button" tabindex="0" title="返回首页宾果库">
-        <div class="brand-icon">🎯</div>
+        <div class="brand-icon" title="宾果工坊">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M5 3h10a2 2 0 0 1 2 2v1"/>
+            <path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M3 5v10a2 2 0 0 0 2 2h1"/>
+            <rect stroke="currentColor" stroke-width="1.8" x="7" y="7" width="14" height="14" rx="2.5"/>
+            <rect fill="currentColor" x="9" y="9.2" width="10" height="1.6" rx="0.8"/>
+            <rect fill="currentColor" x="9" y="11.8" width="2.8" height="2.2" rx="0.8"/>
+            <rect stroke="currentColor" stroke-opacity="0.45" stroke-width="0.9" x="12.6" y="11.8" width="2.8" height="2.2" rx="0.8"/>
+            <rect stroke="currentColor" stroke-opacity="0.45" stroke-width="0.9" x="16.2" y="11.8" width="2.8" height="2.2" rx="0.8"/>
+            <rect stroke="currentColor" stroke-opacity="0.45" stroke-width="0.9" x="9" y="14.6" width="2.8" height="2.2" rx="0.8"/>
+            <rect stroke="currentColor" stroke-width="1.1" x="12.6" y="14.6" width="2.8" height="2.2" rx="0.8"/>
+            <path fill="currentColor" d="M14 15.1l.25.45.5.07-.38.35.1.5-.47-.25-.47.25.1-.5-.38-.35.5-.07z"/>
+            <rect stroke="currentColor" stroke-opacity="0.45" stroke-width="0.9" x="16.2" y="14.6" width="2.8" height="2.2" rx="0.8"/>
+            <rect stroke="currentColor" stroke-opacity="0.45" stroke-width="0.9" x="9" y="17.4" width="2.8" height="2.2" rx="0.8"/>
+            <rect stroke="currentColor" stroke-opacity="0.45" stroke-width="0.9" x="12.6" y="17.4" width="2.8" height="2.2" rx="0.8"/>
+            <rect fill="currentColor" x="16.2" y="17.4" width="2.8" height="2.2" rx="0.8"/>
+          </svg>
+        </div>
         <div class="brand-text">
-          <h1>宾果工坊 · Bingo Hub</h1>
-          <p>bingo.zgqinc.gq · 互联网宾果游戏个人收集与打卡</p>
+          <h1>互联网宾果个人收集</h1>
+          <p>By ZGQ Inc.</p>
         </div>
       </div>
 
@@ -81,14 +104,65 @@
     <section id="gallery-section">
 
       <div class="gallery-meta">
-        <span id="card-count-label">正在加载卡片...</span>
+        <span id="card-count-label" class="card-count-loading">
+          <span class="loading-spinner"></span>
+          <span class="loading-text">正在加载卡片库<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span></span>
+        </span>
         <div class="gallery-actions">
-          <span style="font-size: 13px; opacity: 0.85;">💡 支持宾果游戏、性癖罐子与群友打卡</span>
+          <span style="font-size: 13px; opacity: 0.85;">宾果 & 罐子 & 打卡</span>
         </div>
       </div>
 
       <div id="games-grid" class="games-grid">
-        <!-- Rendered dynamically -->
+        <!-- Skeleton loading placeholders -->
+        <div class="card-skeleton">
+          <div class="skeleton-thumb"></div>
+          <div class="skeleton-info">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line sub"></div>
+            <div class="skeleton-line footer"></div>
+          </div>
+        </div>
+        <div class="card-skeleton">
+          <div class="skeleton-thumb"></div>
+          <div class="skeleton-info">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line sub"></div>
+            <div class="skeleton-line footer"></div>
+          </div>
+        </div>
+        <div class="card-skeleton">
+          <div class="skeleton-thumb"></div>
+          <div class="skeleton-info">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line sub"></div>
+            <div class="skeleton-line footer"></div>
+          </div>
+        </div>
+        <div class="card-skeleton">
+          <div class="skeleton-thumb"></div>
+          <div class="skeleton-info">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line sub"></div>
+            <div class="skeleton-line footer"></div>
+          </div>
+        </div>
+        <div class="card-skeleton">
+          <div class="skeleton-thumb"></div>
+          <div class="skeleton-info">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line sub"></div>
+            <div class="skeleton-line footer"></div>
+          </div>
+        </div>
+        <div class="card-skeleton">
+          <div class="skeleton-thumb"></div>
+          <div class="skeleton-info">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line sub"></div>
+            <div class="skeleton-line footer"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -207,7 +281,7 @@
     <div slot="headline" id="original-dialog-title" class="dialog-headline">原图查看</div>
         <div slot="content" class="dialog-content">
       <p class="dialog-description">
-        导出打卡图片时会在底部打上精致的水印横幅，您可以自定义您的网站主页与署名信息：
+        导出打卡图片时会在底部打上精致的水印横幅，您可以自定义您的昵称与署名信息：
       </p>
       <div class="dialog-img-wrap">
         <img id="original-dialog-img" src="" alt="原图预览">
@@ -230,15 +304,15 @@
     </div>
         <div slot="content" class="dialog-content">
       <p class="dialog-description">
-        导出打卡图片时会在底部打上精致的水印横幅，您可以自定义您的网站主页与署名信息：
+        导出打卡图片时会在底部打上精致的水印横幅，您可以自定义您的网站主页或署名信息：
       </p>
 
       <div class="dialog-form-fields">
         <md-outlined-text-field
           id="watermark-site-input"
-          label="网站主页 / 域名地址"
+          label="网站主页 / 网上昵称"
           value="bingo.zgqinc.gq"
-          supporting-text="例如: bingo.zgqinc.gq"
+          supporting-text="自定义署名信息"
         ></md-outlined-text-field>
 
         <md-outlined-text-field
@@ -268,18 +342,34 @@
 
   <!-- Footer (Specified by user) -->
   <footer class="app-footer">
-    <div data-i18n="footerRights">&copy; 2026 ZGQ Inc.</div>
+    <div class="footer-license-row">
+      <span data-i18n="footerRights">&copy; 2026 ZGQ Inc.</span>
+      <span class="footer-dot">·</span>
+      <span>代码基于 <a href="https://github.com/ZGQ-inc/bingo/blob/main/LICENSE" target="_blank" class="footer-license-link">MIT License</a> 开源</span>
+    </div>
     <div class="cc-logo" title="Creative Commons Attribution-NonCommercial-ShareAlike">🄯
-      <span data-i18n="ccPrefix">本作品采用</span>
+      <span data-i18n="ccPrefix">素材遵循</span>
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
-        <span data-i18n="ccLink">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</span>
+        <span data-i18n="ccLink">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 (CC BY-NC-SA 4.0)</span>
       </a>
       <span data-i18n="ccSuffix">进行许可。</span>
     </div>
     <div class="footer-disclaimer">
-      免责声明：本站所有宾果游戏、性癖罐子及问卷图片均为个人在互联网及聊天记录中的收集与整理，绝大多数原作者未知。本站仅作为个人收集与非商业打卡记录使用。如果您是原作者并希望添加署名或申请移除，请通过<a href="http://domain.zgqinc.gq" target="_blank" class="disclaimer-highlight">个人主页</a>与我联系。
+      <div class="footer-submit-tip">
+        📮 如果你有不错的宾果游戏想要收录，欢迎通过 <a href="https://github.com/ZGQ-inc/bingo/issues/" target="_blank" class="disclaimer-highlight">Issues</a> 提交推荐！
+      </div>
+      <div>
+        免责声明：本站所有宾果游戏、性癖罐子及问卷图片均为个人在互联网及聊天记录中的收集与整理，绝大多数原作者未知。本站仅作为个人收集与非商业打卡记录使用。如果您是原作者并希望添加署名或申请移除，请通过 <a href="https://github.com/ZGQ-inc/bingo/issues/" target="_blank" class="disclaimer-highlight">Issues</a> 与我联系。
+      </div>
     </div>
     <div class="footer-links">
+      <a href="https://github.com/ZGQ-inc/bingo" target="_blank" class="footer-link">
+        <svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <title>GitHub</title>
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        GitHub
+      </a>
       <a href="http://domain.zgqinc.gq" target="_blank" class="footer-link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="16" height="16" fill="currentColor">
           <path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z" />

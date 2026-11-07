@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none">
+  <style>
+    :root {
+      --color-primary: #1e93e5;
+      --color-dim: rgba(30, 147, 229, 0.45);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-primary: #9ecaff;
+        --color-dim: rgba(158, 202, 255, 0.45);
+      }
+    }
+    .main-stroke { stroke: var(--color-primary); }
+    .dim-stroke  { stroke: var(--color-dim); }
+    .main-fill   { fill: var(--color-primary); }
+  </style>
+  <!-- Back folded card -->
+  <path class="main-stroke" d="M5 3h10a2 2 0 0 1 2 2v1" stroke-width="1.8" stroke-linecap="round"/>
+  <path class="main-stroke" d="M3 5v10a2 2 0 0 0 2 2h1" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Front card frame -->
+  <rect class="main-stroke" x="7" y="7" width="14" height="14" rx="2.5" stroke-width="1.8"/>
+  <!-- Top bar -->
+  <rect class="main-fill" x="9" y="9.2" width="10" height="1.6" rx="0.8"/>
+  <!-- 3x3 rounded cells (rx=0.8) -->
+  <!-- Row 1 -->
+  <rect class="main-fill" x="9" y="11.8" width="2.8" height="2.2" rx="0.8"/>
+  <rect class="dim-stroke" x="12.6" y="11.8" width="2.8" height="2.2" rx="0.8" stroke-width="0.9"/>
+  <rect class="dim-stroke" x="16.2" y="11.8" width="2.8" height="2.2" rx="0.8" stroke-width="0.9"/>
+  <!-- Row 2 -->
+  <rect class="dim-stroke" x="9" y="14.6" width="2.8" height="2.2" rx="0.8" stroke-width="0.9"/>
+  <!-- Center Star FREE space! -->
+  <rect class="main-stroke" x="12.6" y="14.6" width="2.8" height="2.2" rx="0.8" stroke-width="1.1"/>
+  <path class="main-fill" d="M14 15.1l.25.45.5.07-.38.35.1.5-.47-.25-.47.25.1-.5-.38-.35.5-.07z"/>
+  <rect class="dim-stroke" x="16.2" y="14.6" width="2.8" height="2.2" rx="0.8" stroke-width="0.9"/>
+  <!-- Row 3 -->
+  <rect class="dim-stroke" x="9" y="17.4" width="2.8" height="2.2" rx="0.8" stroke-width="0.9"/>
+  <rect class="dim-stroke" x="12.6" y="17.4" width="2.8" height="2.2" rx="0.8" stroke-width="0.9"/>
+  <rect class="main-fill" x="16.2" y="17.4" width="2.8" height="2.2" rx="0.8"/>
+</svg>

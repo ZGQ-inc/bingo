@@ -83,7 +83,7 @@ class BingoApp {
       this.categories = await catRes.json();
     } catch (e) {
       console.error('Failed to load bingo data:', e);
-      this.showToast('数据加载失败，请确保通过本地服务器打开');
+      this.showToast('数据加载失败');
     }
 
     // Attempt to load author personal records
@@ -206,11 +206,11 @@ class BingoApp {
           this.renderer.resizeCanvas();
           this.renderer.render();
         }
-        this.showToast(isImmersive ? '已开启满宽全屏（取消边距）' : '已恢复标准边距视图');
+        this.showToast(isImmersive ? '已开启满宽全屏' : '已恢复标准边距视图');
       } else {
         const mode = this.renderer.toggleFitMode();
         this.updateFitButtonUI();
-        this.showToast(mode === 'vertical' ? '已开启 PC 垂直 100% 满高适应' : '已切换为适宽模式');
+        this.showToast(mode === 'vertical' ? '已开启满高适应' : '已切换为适宽模式');
       }
     });
 
@@ -290,7 +290,7 @@ class BingoApp {
       const mode = this.renderer?.fitMode || 'vertical';
       fitText.textContent = mode === 'vertical' ? '垂直适屏' : '宽度自适应';
       if (fitIcon) fitIcon.textContent = mode === 'vertical' ? 'fit_screen' : 'width_full';
-      fitBtn.setAttribute('title', mode === 'vertical' ? '已开启 PC 垂直 100% 满高适应' : '已切换为宽度自适应模式');
+      fitBtn.setAttribute('title', mode === 'vertical' ? '已开启满高适应' : '已切换为宽度自适应模式');
     }
   }
 
@@ -346,7 +346,7 @@ class BingoApp {
         ownerToggle.classList.toggle('active', this.isViewingAuthor);
         if (this.isViewingAuthor) {
           ownerToggle.innerHTML = `<span>👑 作者记录展示中</span>`;
-          this.showToast('已切换至作者 (ZGQ) 的个人打卡结果展示');
+          this.showToast('已切换至作者的个人打卡结果展示');
         } else {
           ownerToggle.innerHTML = `<span>👤 切换作者记录</span>`;
           this.showToast('已切回您的个人打卡');
@@ -595,7 +595,14 @@ class BingoApp {
 
     const countLabel = document.getElementById('card-count-label');
     if (countLabel) {
-      countLabel.textContent = `共收录 ${filtered.length} 款宾果游戏与罐子量表`;
+      countLabel.classList.remove('card-count-loading');
+      countLabel.classList.add('card-count-loaded');
+      countLabel.innerHTML = `
+        <span class="count-badge">
+          <span class="count-pulse-dot"></span>
+          共 <strong>${filtered.length}</strong> 款宾果与量表
+        </span>
+      `;
     }
 
     if (filtered.length === 0) {

@@ -591,7 +591,7 @@ export class CanvasRenderer {
     ctx.textBaseline = 'middle';
     const siteText = this.settings.watermarkSite || 'bingo.zgqinc.gq';
     const paddingX = Math.max(18, width * 0.035);
-    ctx.fillText(`🌐 ${siteText}`, paddingX, nativeH + barHeight * 0.44);
+    ctx.fillText(`${siteText}`, paddingX, nativeH + barHeight * 0.44);
 
     // Subtitle
     ctx.fillStyle = '#9ca3af';

@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "owner": "ZGQ",
+  "title": "ZGQ 的个人宾果与罐子打卡记录",
+  "website": "https://bingo.zgqinc.gq",
+  "updatedAt": "2026-11-06T18:00:00Z",
+  "records": {
+    "card_00": {
+      "type": "bingo",
+      "checked": [0, 1, 2, 3, 4, 6, 12, 18, 24],
+      "completedLines": 2
+    },
+    "card_06": {
+      "type": "bingo",
+      "checked": [0, 5, 10, 15, 20, 12, 16],
+      "completedLines": 1
+    },
+    "card_28": {
+      "type": "bottle",
+      "bottleLevels": {
+        "0": 80,
+        "1": 50,
+        "2": 100,
+        "5": 30,
+        "8": 90,
+        "12": 60,
+        "15": 75,
+        "20": 40
+      }
+    },
+    "card_36": {
+      "type": "bottle",
+      "bottleLevels": {
+        "0": 100,
+        "3": 70,
+        "7": 85,
+        "10": 50,
+        "14": 90,
+        "18": 60,
+        "22": 80
+      }
+    }
+  }
+}

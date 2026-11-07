@@ -1,0 +1,199 @@
+{
+  "id": "card_46",
+  "type": "bingo",
+  "filename": "images/57@files_240926_193856_648.jpg",
+  "title": "非典型福瑞控bingo",
+  "subtitle": "如果连成一条线说明还能喝中药救回来",
+  "category": "福瑞专区",
+  "categoryId": "furry",
+  "categoryIcon": "🐾",
+  "width": 680,
+  "height": 680,
+  "grid": {
+    "rows": 4,
+    "cols": 4,
+    "x": 73,
+    "y": 167,
+    "w": 536,
+    "h": 502
+  },
+  "cellCount": 16,
+  "cells": [
+    {
+      "index": 0,
+      "row": 0,
+      "col": 0,
+      "x": 73,
+      "y": 167,
+      "w": 129,
+      "h": 122,
+      "text": "不玩舞萌",
+      "isCenter": false
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "col": 1,
+      "x": 202,
+      "y": 167,
+      "w": 134,
+      "h": 122,
+      "text": "不玩东京放课后",
+      "isCenter": false
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "col": 2,
+      "x": 336,
+      "y": 167,
+      "w": 127,
+      "h": 122,
+      "text": "不玩绝区零",
+      "isCenter": false
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "col": 3,
+      "x": 463,
+      "y": 167,
+      "w": 146,
+      "h": 122,
+      "text": "不玩屌五",
+      "isCenter": false
+    },
+    {
+      "index": 4,
+      "row": 1,
+      "col": 0,
+      "x": 73,
+      "y": 289,
+      "w": 129,
+      "h": 119,
+      "text": "不玩阴阳师",
+      "isCenter": false
+    },
+    {
+      "index": 5,
+      "row": 1,
+      "col": 1,
+      "x": 202,
+      "y": 289,
+      "w": 134,
+      "h": 119,
+      "text": "不搞兽人utau",
+      "isCenter": false
+    },
+    {
+      "index": 6,
+      "row": 1,
+      "col": 2,
+      "x": 336,
+      "y": 289,
+      "w": 127,
+      "h": 119,
+      "text": "没有自设或没有稿件或没有装",
+      "isCenter": false
+    },
+    {
+      "index": 7,
+      "row": 1,
+      "col": 3,
+      "x": 463,
+      "y": 289,
+      "w": 146,
+      "h": 119,
+      "text": "不参加兽聚",
+      "isCenter": false
+    },
+    {
+      "index": 8,
+      "row": 2,
+      "col": 0,
+      "x": 73,
+      "y": 408,
+      "w": 129,
+      "h": 122,
+      "text": "不会自拍擦边照片给网友看",
+      "isCenter": false
+    },
+    {
+      "index": 9,
+      "row": 2,
+      "col": 1,
+      "x": 202,
+      "y": 408,
+      "w": 134,
+      "h": 122,
+      "text": "没有发生过情感纠纷",
+      "isCenter": false
+    },
+    {
+      "index": 10,
+      "row": 2,
+      "col": 2,
+      "x": 336,
+      "y": 408,
+      "w": 127,
+      "h": 122,
+      "text": "不玩lah",
+      "isCenter": false
+    },
+    {
+      "index": 11,
+      "row": 2,
+      "col": 3,
+      "x": 463,
+      "y": 408,
+      "w": 146,
+      "h": 122,
+      "text": "如果玩ff14不会捏大猫",
+      "isCenter": false
+    },
+    {
+      "index": 12,
+      "row": 3,
+      "col": 0,
+      "x": 73,
+      "y": 530,
+      "w": 129,
+      "h": 139,
+      "text": "关注的福瑞大v少于5个",
+      "isCenter": false
+    },
+    {
+      "index": 13,
+      "row": 3,
+      "col": 1,
+      "x": 202,
+      "y": 530,
+      "w": 134,
+      "h": 139,
+      "text": "聊天背景或屏保不是福瑞壁纸",
+      "isCenter": false
+    },
+    {
+      "index": 14,
+      "row": 3,
+      "col": 2,
+      "x": 336,
+      "y": 530,
+      "w": 127,
+      "h": 139,
+      "text": "不玩方舟或不推山哔",
+      "isCenter": false
+    },
+    {
+      "index": 15,
+      "row": 3,
+      "col": 3,
+      "x": 463,
+      "y": 530,
+      "w": 146,
+      "h": 139,
+      "text": "很少或不购买自己认为很贵的福瑞制品",
+      "isCenter": false
+    }
+  ]
+}

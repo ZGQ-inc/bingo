@@ -1,0 +1,199 @@
+{
+  "id": "card_29",
+  "type": "bingo",
+  "filename": "images/32@files_240814_172532_659.jpg",
+  "title": "电脑高手宾果游戏 (初级)",
+  "subtitle": "连成两条线=电脑高手 / 连成三条线=电脑奇才 / 连成四条线=电脑皇帝",
+  "category": "科技与数码",
+  "categoryId": "tech",
+  "categoryIcon": "💻",
+  "width": 983,
+  "height": 1280,
+  "grid": {
+    "rows": 4,
+    "cols": 4,
+    "x": 0,
+    "y": 295,
+    "w": 982,
+    "h": 985
+  },
+  "cellCount": 16,
+  "cells": [
+    {
+      "index": 0,
+      "row": 0,
+      "col": 0,
+      "x": 0,
+      "y": 295,
+      "w": 244,
+      "h": 249,
+      "text": "会安装Linux系统",
+      "isCenter": false
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "col": 1,
+      "x": 244,
+      "y": 295,
+      "w": 245,
+      "h": 249,
+      "text": "懂Windows初代叫什么",
+      "isCenter": false
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "col": 2,
+      "x": 489,
+      "y": 295,
+      "w": 248,
+      "h": 249,
+      "text": "会打包和解压缩.tgz",
+      "isCenter": false
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "col": 3,
+      "x": 737,
+      "y": 295,
+      "w": 245,
+      "h": 249,
+      "text": "会修改注册表",
+      "isCenter": false
+    },
+    {
+      "index": 4,
+      "row": 1,
+      "col": 0,
+      "x": 0,
+      "y": 544,
+      "w": 244,
+      "h": 245,
+      "text": "知道怎样低级格式化硬盘",
+      "isCenter": false
+    },
+    {
+      "index": 5,
+      "row": 1,
+      "col": 1,
+      "x": 244,
+      "y": 544,
+      "w": 245,
+      "h": 245,
+      "text": "会修改开机启动画面",
+      "isCenter": false
+    },
+    {
+      "index": 6,
+      "row": 1,
+      "col": 2,
+      "x": 489,
+      "y": 544,
+      "w": 248,
+      "h": 245,
+      "text": "会卸载刚更新的系统补丁",
+      "isCenter": false
+    },
+    {
+      "index": 7,
+      "row": 1,
+      "col": 3,
+      "x": 737,
+      "y": 544,
+      "w": 245,
+      "h": 245,
+      "text": "懂怎么写一个批处理文件",
+      "isCenter": false
+    },
+    {
+      "index": 8,
+      "row": 2,
+      "col": 0,
+      "x": 0,
+      "y": 789,
+      "w": 244,
+      "h": 248,
+      "text": "知道怎么样给路由器刷DDWRT",
+      "isCenter": false
+    },
+    {
+      "index": 9,
+      "row": 2,
+      "col": 1,
+      "x": 244,
+      "y": 789,
+      "w": 245,
+      "h": 248,
+      "text": "会给软件和游戏打学习补丁",
+      "isCenter": false
+    },
+    {
+      "index": 10,
+      "row": 2,
+      "col": 2,
+      "x": 489,
+      "y": 789,
+      "w": 248,
+      "h": 248,
+      "text": "会使用cmd结束进程",
+      "isCenter": false
+    },
+    {
+      "index": 11,
+      "row": 2,
+      "col": 3,
+      "x": 737,
+      "y": 789,
+      "w": 245,
+      "h": 248,
+      "text": "会运行Python脚本",
+      "isCenter": false
+    },
+    {
+      "index": 12,
+      "row": 3,
+      "col": 0,
+      "x": 0,
+      "y": 1037,
+      "w": 244,
+      "h": 243,
+      "text": "给笔记本清灰",
+      "isCenter": false
+    },
+    {
+      "index": 13,
+      "row": 3,
+      "col": 1,
+      "x": 244,
+      "y": 1037,
+      "w": 245,
+      "h": 243,
+      "text": "会自己装机",
+      "isCenter": false
+    },
+    {
+      "index": 14,
+      "row": 3,
+      "col": 2,
+      "x": 489,
+      "y": 1037,
+      "w": 248,
+      "h": 243,
+      "text": "会安装黑苹果",
+      "isCenter": false
+    },
+    {
+      "index": 15,
+      "row": 3,
+      "col": 3,
+      "x": 737,
+      "y": 1037,
+      "w": 245,
+      "h": 243,
+      "text": "会改系统变量",
+      "isCenter": false
+    }
+  ]
+}

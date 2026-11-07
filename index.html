@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎯 宾果工坊 · bingo.zgqinc.gq</title>
+  <meta name="description" content="ZGQ 的个人宾果游戏收集与在线打卡工具，支持罐子量表百分比滑动、原图高精度标记与自定义导出。">
+  <meta property="og:title" content="宾果工坊 · bingo.zgqinc.gq">
+  <meta property="og:site_name" content="ZGQ Inc.">
+
+  <!-- Material Symbols & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top App Bar (Glassmorphic) -->
+  <header class="app-header" id="app-header">
+    <div class="header-inner">
+      <div class="brand" role="button" tabindex="0" title="返回首页宾果库">
+        <div class="brand-icon">🎯</div>
+        <div class="brand-text">
+          <h1>宾果工坊 · Bingo Hub</h1>
+          <p>bingo.zgqinc.gq · 个人宾果收集与打卡</p>
+        </div>
+      </div>
+
+      <div class="search-wrap">
+        <div class="m3-search-bar" id="search-bar-container">
+          <md-icon class="search-bar-icon">search</md-icon>
+          <input type="text" id="search-input" class="search-bar-input" placeholder="搜索宾果主题、项目或内容..." autocomplete="off" spellcheck="false">
+          <button type="button" id="search-clear-btn" class="search-bar-clear" title="清空搜索" style="display: none;">
+            <md-icon>close</md-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Author Records Toggle Pill -->
+        <div id="owner-showcase-toggle" class="owner-pill-toggle" title="切换查看作者 (ZGQ) 的打卡记录" style="display:none;">
+          <span>👤 切换作者记录</span>
+        </div>
+
+        <div class="header-buttons">
+          <md-icon-button id="btn-export-personal" title="导出个人记录 (JSON)">
+            <md-icon>download</md-icon>
+          </md-icon-button>
+
+          <md-icon-button id="btn-import-personal" title="导入记录 (JSON)">
+            <md-icon>upload</md-icon>
+          </md-icon-button>
+          <input type="file" id="import-file-input" accept=".json" style="display:none;">
+
+          <md-icon-button id="btn-settings" title="网站地址与水印设置">
+            <md-icon>settings</md-icon>
+          </md-icon-button>
+
+          <md-icon-button id="theme-toggle" title="切换主题模式 (深色/浅色)">
+            <md-icon id="theme-icon">brightness_auto</md-icon>
+          </md-icon-button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Chips Tab Row (Sticky with Header, Hide/Show on Scroll) -->
+    <div class="header-filter-row" id="header-filter-bar">
+      <div class="chip-scroll">
+        <md-chip-set id="category-chips"></md-chip-set>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Gallery Section -->
+    <section id="gallery-section">
+
+      <div class="gallery-meta">
+        <span id="card-count-label">正在加载卡片...</span>
+        <div class="gallery-actions">
+          <span style="font-size: 13px; opacity: 0.85;">💡 支持宾果游戏、性癖罐子与群友打卡</span>
+        </div>
+      </div>
+
+      <div id="games-grid" class="games-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Player Section -->
+    <section id="player-section" class="player-section">
+      <div class="player-top-nav">
+        <md-text-button id="back-to-gallery">
+          <md-icon slot="icon">arrow_back</md-icon>
+          返回项目列表
+        </md-text-button>
+      </div>
+
+      <!-- Player Header Card -->
+      <div class="player-header-card">
+        <div class="player-title-box">
+          <h2 id="player-title">宾果游戏标题</h2>
+          <p id="player-sub">点击加盖戳印打卡</p>
+        </div>
+
+        <div class="player-stats-box">
+          <span id="player-category" class="category-pill" style="position:static;">分类</span>
+          <span id="player-checked-stats" class="checked-stats-pill">已选 0 / 25</span>
+          <span id="player-lines-badge" class="lines-badge">当前连线: 0 条</span>
+        </div>
+      </div>
+
+      <!-- Player Toolbar -->
+      <div class="player-toolbar">
+        <div class="toolbar-primary-row">
+          <div class="toolbar-group">
+            <span class="toolbar-label">视图模式:</span>
+            <div class="segmented-mode-selector" id="view-mode-selector" role="tablist">
+              <button type="button" class="mode-pill-btn active" data-mode="canvas" role="tab" aria-selected="true">
+                <span class="mode-icon">🖼️</span>
+                <span class="mode-text">原图交互</span>
+              </button>
+              <button type="button" class="mode-pill-btn" data-mode="list" role="tab" aria-selected="false">
+                <span class="mode-icon">📋</span>
+                <span class="mode-text">列表滑块</span>
+              </button>
+              <button type="button" class="mode-pill-btn" data-mode="split" role="tab" aria-selected="false">
+                <span class="mode-icon">🔀</span>
+                <span class="mode-text">分屏对照</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="toolbar-actions">
+            <md-outlined-button id="btn-toggle-fit" title="切换 PC 适屏 / 移动端全屏">
+              <md-icon slot="icon" id="btn-fit-icon">fit_screen</md-icon>
+              <span id="btn-fit-text">垂直适屏</span>
+            </md-outlined-button>
+            <md-outlined-button id="btn-view-original">
+              <md-icon slot="icon">visibility</md-icon>
+              查看原图
+            </md-outlined-button>
+            <md-outlined-button id="btn-clear-checks">
+              <md-icon slot="icon">restart_alt</md-icon>
+              清空
+            </md-outlined-button>
+            <md-outlined-button id="btn-random-checks">
+              <md-icon slot="icon">casino</md-icon>
+              随机
+            </md-outlined-button>
+            <md-filled-button id="btn-export-image">
+              <md-icon slot="icon">file_download</md-icon>
+              导出打卡图片
+            </md-filled-button>
+          </div>
+        </div>
+
+        <div class="toolbar-secondary-row" id="toolbar-controls-row">
+          <!-- Bingo Stamp Style Group -->
+          <div class="toolbar-group" id="toolbar-stamp-group">
+            <span class="toolbar-label">标记戳印:</span>
+            <md-filter-chip class="stamp-style-chip" data-style="circle" label="⭕ 红圈" selected></md-filter-chip>
+            <md-filter-chip class="stamp-style-chip" data-style="stamp" label="💮 印章"></md-filter-chip>
+            <md-filter-chip class="stamp-style-chip" data-style="highlighter" label="✏️ 荧光"></md-filter-chip>
+            <md-filter-chip class="stamp-style-chip" data-style="check" label="✅ 对勾"></md-filter-chip>
+            <md-filter-chip class="stamp-style-chip" data-style="cross" label="❌ 叉号"></md-filter-chip>
+          </div>
+
+          <!-- Color Picker Group -->
+          <div class="toolbar-group" id="toolbar-color-group">
+            <span class="toolbar-label" id="toolbar-color-label">印记颜色:</span>
+            <div class="color-dots-picker" title="选择印记或液体颜色">
+              <div class="color-dot active" style="background:#e53935;" data-color="#e53935" title="经典红"></div>
+              <div class="color-dot" style="background:#e91e63;" data-color="#e91e63" title="樱花粉"></div>
+              <div class="color-dot" style="background:#fb8c00;" data-color="#fb8c00" title="琥珀橙"></div>
+              <div class="color-dot" style="background:#43a047;" data-color="#43a047" title="草木绿"></div>
+              <div class="color-dot" style="background:#1e88e5;" data-color="#1e88e5" title="海蓝"></div>
+              <div class="color-dot" style="background:#8e24aa;" data-color="#8e24aa" title="香芋紫"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Player Content Area -->
+      <div id="player-content-area" class="player-content-area">
+        <!-- Canvas Container -->
+        <div id="canvas-container" class="canvas-container">
+          <canvas id="bingo-canvas"></canvas>
+          <div class="canvas-hint">💡 点击或垂直拖动方格/罐子即可快速调整标记与填充百分比</div>
+        </div>
+
+        <!-- Digital Checklist / Bottle Slider Grid -->
+        <div id="checklist-container" class="checklist-container" style="display:none;"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Original Image Dialog (60dp depth of field) -->
+  <md-dialog id="original-dialog">
+    <div slot="headline" id="original-dialog-title" class="dialog-headline">原图查看</div>
+        <div slot="content" class="dialog-content">
+      <p class="dialog-description">
+        导出打卡图片时会在底部打上精致的水印横幅，您可以自定义您的网站主页与署名信息：
+      </p>
+      <div class="dialog-img-wrap">
+        <img id="original-dialog-img" src="" alt="原图预览">
+      </div>
+    </div>
+    <div slot="actions" class="dialog-actions-row">
+      <md-outlined-button id="btn-download-original">
+        <md-icon slot="icon">download</md-icon>
+        下载无损原图
+      </md-outlined-button>
+      <md-text-button onclick="document.getElementById('original-dialog').close()">关闭</md-text-button>
+    </div>
+  </md-dialog>
+
+  <!-- Watermark Settings Dialog -->
+  <md-dialog id="watermark-dialog">
+    <div slot="headline" class="dialog-headline">
+      <md-icon class="dialog-headline-icon">tune</md-icon>
+      <span>导出水印与网站设置</span>
+    </div>
+        <div slot="content" class="dialog-content">
+      <p class="dialog-description">
+        导出打卡图片时会在底部打上精致的水印横幅，您可以自定义您的网站主页与署名信息：
+      </p>
+
+      <div class="dialog-form-fields">
+        <md-outlined-text-field
+          id="watermark-site-input"
+          label="网站主页 / 域名地址"
+          value="bingo.zgqinc.gq"
+          supporting-text="例如: bingo.zgqinc.gq"
+        ></md-outlined-text-field>
+
+        <md-outlined-text-field
+          id="watermark-sub-input"
+          label="副标题 / 打卡寄语"
+          value="ZGQ 的个人宾果收集 · 打卡记录"
+          supporting-text="显示在水印次行，记录您的个性签名"
+        ></md-outlined-text-field>
+      </div>
+
+      <div class="dialog-setting-card">
+        <div class="dialog-setting-info">
+          <span class="setting-title">启用水印横幅</span>
+          <span class="setting-desc">在导出的长图底部展示网站与打卡寄语</span>
+        </div>
+        <md-switch id="watermark-enable-switch" selected></md-switch>
+      </div>
+    </div>
+    <div slot="actions" class="dialog-actions-row">
+      <md-text-button onclick="document.getElementById('watermark-dialog').close()">取消</md-text-button>
+      <md-filled-button id="btn-save-watermark">
+        <md-icon slot="icon">check</md-icon>
+        保存设置
+      </md-filled-button>
+    </div>
+  </md-dialog>
+
+  <!-- Footer (Specified by user) -->
+  <footer class="app-footer">
+    <div data-i18n="footerRights">&copy; 2026 ZGQ Inc.</div>
+    <div class="cc-logo" title="Creative Commons Attribution-NonCommercial-ShareAlike">🄯
+      <span data-i18n="ccPrefix">本作品采用</span>
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+        <span data-i18n="ccLink">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</span>
+      </a>
+      <span data-i18n="ccSuffix">进行许可。</span>
+    </div>
+    <div class="footer-disclaimer">
+      免责声明：本站收录的各类宾果及量表图片均收集自互联网及聊天记录，绝大部分原作者未知。本站仅供交流与个人打卡记录，非商业用途。如果您是原作者并希望添加署名或申请下架，请通过<a href="http://domain.zgqinc.gq" target="_blank" class="disclaimer-highlight">个人主页</a>与我联系。
+    </div>
+    <div class="footer-links">
+      <a href="http://domain.zgqinc.gq" target="_blank" class="footer-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="16" height="16" fill="currentColor">
+          <path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z" />
+        </svg>
+        domain.zgqinc.gq
+      </a>
+      <a href="https://t.me/ZGQinc" target="_blank" class="footer-link">
+        <svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <title>Telegram</title>
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+        </svg>
+        @ZGQinc
+      </a>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="app-toast" class="app-toast"></div>
+
+  <!-- Material Web Bundle -->
+  <script type="module" src="js/material-web.bundle.js"></script>
+  <!-- Application Main Script -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

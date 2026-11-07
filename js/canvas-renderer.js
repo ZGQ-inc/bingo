@@ -160,77 +160,100 @@ export class CanvasRenderer {
       }
     };
 
-    this.canvas.addEventListener('mousedown', (e) => {
+    let startX = 0;
+    let startY = 0;
+    let isPointerDown = false;
+
+    // Unified Pointer Events: perfectly handles both desktop mouse & mobile touch
+    // eliminating the duplicate touchstart + synthetic mousedown toggle bug
+    this.canvas.addEventListener('pointerdown', (e) => {
+      if (!e.isPrimary) return;
+      isPointerDown = true;
+      startX = e.clientX;
+      startY = e.clientY;
+
       const pos = getPos(e.clientX, e.clientY);
       if (pos.index !== -1) {
         if (this.card?.type === 'bottle') {
           this.isDragging = true;
           this.dragIndex = pos.index;
+          try {
+            this.canvas.setPointerCapture(e.pointerId);
+          } catch (_) {}
           updateBottleDrag(pos.x, pos.y, pos.index);
-        } else {
-          if (this.onCellClick) this.onCellClick(pos.index);
         }
       }
     });
 
-    window.addEventListener('mousemove', (e) => {
+    this.canvas.addEventListener('pointermove', (e) => {
+      if (!e.isPrimary) return;
+
       if (this.isDragging && this.dragIndex !== -1) {
         const pos = getPos(e.clientX, e.clientY);
         updateBottleDrag(pos.x, pos.y, this.dragIndex);
         return;
       }
 
-      const pos = getPos(e.clientX, e.clientY);
-      if (pos.index !== this.hoverIndex) {
-        this.hoverIndex = pos.index;
-        this.render();
-        this.canvas.style.cursor = pos.index !== -1 ? 'pointer' : 'default';
+      if (e.pointerType === 'mouse') {
+        const pos = getPos(e.clientX, e.clientY);
+        if (pos.index !== this.hoverIndex) {
+          this.hoverIndex = pos.index;
+          this.render();
+          this.canvas.style.cursor = pos.index !== -1 ? 'pointer' : 'default';
+        }
       }
     });
 
-    window.addEventListener('mouseup', () => {
+    const handlePointerUp = (e) => {
+      if (!isPointerDown) return;
+      isPointerDown = false;
+
       if (this.isDragging) {
         this.isDragging = false;
         this.dragIndex = -1;
-      }
-    });
-
-    // Touch events for mobile
-    this.canvas.addEventListener('touchstart', (e) => {
-      if (e.touches.length === 1) {
-        const t = e.touches[0];
-        const pos = getPos(t.clientX, t.clientY);
-        if (pos.index !== -1) {
-          this.hoverIndex = pos.index;
-          if (this.card?.type === 'bottle') {
-            this.isDragging = true;
-            this.dragIndex = pos.index;
-            updateBottleDrag(pos.x, pos.y, pos.index);
-          } else {
-            if (this.onCellClick) this.onCellClick(pos.index);
+        try {
+          if (this.canvas.hasPointerCapture(e.pointerId)) {
+            this.canvas.releasePointerCapture(e.pointerId);
           }
-          this.render();
+        } catch (_) {}
+        return;
+      }
+
+      // For Bingo / Checklist cards, tap or click triggers cleanly on pointerup
+      const dist = Math.hypot(e.clientX - startX, e.clientY - startY);
+      if (dist <= 12) {
+        const pos = getPos(e.clientX, e.clientY);
+        if (pos.index !== -1) {
+          if (this.onCellClick) this.onCellClick(pos.index);
         }
       }
-    }, { passive: true });
 
-    this.canvas.addEventListener('touchmove', (e) => {
-      if (this.isDragging && this.dragIndex !== -1 && e.touches.length === 1) {
-        const t = e.touches[0];
-        const pos = getPos(t.clientX, t.clientY);
-        updateBottleDrag(pos.x, pos.y, this.dragIndex);
+      if (this.hoverIndex !== -1 && e.pointerType === 'touch') {
+        this.hoverIndex = -1;
+        this.render();
       }
-    }, { passive: true });
+    };
 
-    this.canvas.addEventListener('touchend', () => {
-      this.isDragging = false;
-      this.dragIndex = -1;
-      this.hoverIndex = -1;
-      this.render();
+    this.canvas.addEventListener('pointerup', handlePointerUp);
+    this.canvas.addEventListener('pointercancel', (e) => {
+      isPointerDown = false;
+      if (this.isDragging) {
+        this.isDragging = false;
+        this.dragIndex = -1;
+        try {
+          if (this.canvas.hasPointerCapture(e.pointerId)) {
+            this.canvas.releasePointerCapture(e.pointerId);
+          }
+        } catch (_) {}
+      }
+      if (this.hoverIndex !== -1) {
+        this.hoverIndex = -1;
+        this.render();
+      }
     });
 
-    this.canvas.addEventListener('mouseleave', () => {
-      if (!this.isDragging && this.hoverIndex !== -1) {
+    this.canvas.addEventListener('pointerleave', (e) => {
+      if (!this.isDragging && this.hoverIndex !== -1 && e.pointerType === 'mouse') {
         this.hoverIndex = -1;
         this.render();
       }

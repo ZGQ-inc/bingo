@@ -1149,6 +1149,14 @@ class BingoApp {
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  window.bingoApp = new BingoApp();
-});
+function initBingoApp() {
+  if (!window.bingoApp) {
+    window.bingoApp = new BingoApp();
+  }
+}
+
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', initBingoApp);
+} else {
+  initBingoApp();
+}

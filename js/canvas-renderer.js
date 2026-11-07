@@ -23,7 +23,7 @@ export class CanvasRenderer {
       showWinningLines: true,
       watermarkEnabled: true,
       watermarkSite: 'bingo.zgqinc.gq',
-      watermarkSub: 'ZGQ 的个人宾果收集 · 打卡记录',
+      watermarkSub: '互联网宾果游戏个人收集 · 打卡记录',
       watermarkPos: 'bottom'
     };
 
@@ -596,7 +596,7 @@ export class CanvasRenderer {
     // Subtitle
     ctx.fillStyle = '#9ca3af';
     ctx.font = `normal ${smallFontSize}px system-ui, -apple-system, sans-serif`;
-    const subText = this.settings.watermarkSub || 'ZGQ 的个人宾果收集 · 打卡记录';
+    const subText = this.settings.watermarkSub || '互联网宾果游戏个人收集 · 打卡记录';
     ctx.fillText(subText, paddingX, nativeH + barHeight * 0.78);
 
     // Right Stats

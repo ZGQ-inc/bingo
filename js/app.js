@@ -1071,7 +1071,7 @@ class BingoApp {
     const enableSwitch = document.getElementById('watermark-enable-switch');
 
     if (siteInput) siteInput.value = this.settings.watermarkSite || 'bingo.zgqinc.gq';
-    if (subInput) subInput.value = this.settings.watermarkSub || 'ZGQ 的个人宾果收集 · 打卡记录';
+    if (subInput) subInput.value = this.settings.watermarkSub || '互联网宾果游戏个人收集 · 打卡记录';
     if (enableSwitch) enableSwitch.selected = this.settings.watermarkEnabled !== false;
 
     dialog?.show();
@@ -1094,7 +1094,7 @@ class BingoApp {
       const enableSwitch = document.getElementById('watermark-enable-switch');
 
       this.settings.watermarkSite = siteInput?.value.trim() || 'bingo.zgqinc.gq';
-      this.settings.watermarkSub = subInput?.value.trim() || 'ZGQ 的个人宾果收集 · 打卡记录';
+      this.settings.watermarkSub = subInput?.value.trim() || '互联网宾果游戏个人收集 · 打卡记录';
       this.settings.watermarkEnabled = enableSwitch ? enableSwitch.selected : true;
 
       Storage.saveSettings(this.settings);

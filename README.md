@@ -1,29 +1,17 @@
 # 🎯 宾果工坊 · Bingo Hub (bingo.zgqinc.gq)
 
-这是一个专为收集和游玩各类网络宾果游戏（Bingo）、性癖罐子（Bottle/Jar）以及调查清单打造的现代化交互网页应用。系统基于 **Google Material Web (`@material/web`)** 与 Material Design 3 风格设计，并参考 `eh.zgqinc.gq` 实现了高阶毛玻璃视效、自动暗黑/浅色主题、离线高精度 OCR、可滑动百分比罐子液体填充、原图无损导出以及个人存档（`personal/`）展示系统。
+> 互联网流行宾果游戏（Bingo）、性癖罐子（Bottle/Jar）及各类问卷量表的个人收集、在线打卡与存档工具。
+
+本项目基于 **Google Material Web (`@material/web`)** 与 Material Design 3 风格设计，并参考 `eh.zgqinc.gq` 实现了高阶毛玻璃视效、自动暗黑/浅色主题、高精度网格对齐、可滑动百分比罐子液体填充、原图无损导出以及个人存档（`personal/`）展示系统。
 
 ---
 
-## 🌟 核心升级与特性
+## 🌟 核心特性
 
 1. **精准结构识别与类型划分（不仅是 5×5）**：
-   - 🧪 **罐子与瓶子量表（支持可滑动百分比）**：
-     - `BL性癖の瓶 (第一弹)`（35 个牛奶瓶，支持 0%~100% 液体灌入）
-     - `BL性癖の瓶 2 (第二弹)`（35 个牛奶瓶）
-     - `填满你的性癖罐子(Furry)`（52 个玻璃密封罐）
-     - `感觉有多少就涂多少`（32 个群友性格评价胶囊）
-     - *原图画布支持直接上下拖拽设定填充高度，列表模式支持 Material Slider 平滑滑动调节，液体具有半透明波纹高光与真实材质感！*
-   - 🎯 **特殊规格宾果**：
-     - `银行卡密码宾果游戏`：10 行 × 6 列（60 格）
-     - `电脑高手宾果游戏 (初级)`：4 行 × 4 列（16 格）
-     - `网络遗老宾果游戏`：3 行 × 5 列（15 格）
-     - `快乐BINGO`：5 行 × 7 列（35 格）
-     - `互联网老登宾果`：5 行 × 5 列（25 款经典复古软件图标）
-     - `青春撸管生活宾果`：5 行 × 5 列横向多词精准提取
-   - 📋 **打分量表与长清单**：
-     - `雄性喜好分数大调查`：15 个部位分类 × 积分规则与评价梯度
-     - `群友如何评价我`：21 行 × 3 列勾选清单
-     - `人生已完成清单`：百项人生经历打卡
+   - 🧪 **罐子与瓶子量表（支持可滑动百分比）**：支持在原图画布或列表模式下直接上下拖拽/滑动设定液体百分比。
+   - 🎯 **特殊规格宾果**：支持 3×5、4×4、5×5、5×7、10×6 等多种网络流行规格，具备智能连线判定。
+   - 📋 **打分量表与长清单**：支持 21×3 清单勾选、分部位评分、百项打卡等多列长图格式。
 
 2. **高规格毛玻璃设计（Glassmorphism）**：
    - 模糊半径 25~40dp，模态弹窗景深控制 60dp
@@ -34,7 +22,7 @@
 
 3. **自适应与手动切换明暗主题（Auto Dark/Light Mode）**：
    - 默认跟随系统 `prefers-color-scheme` 自动切换，支持手动切换（跟随系统 / 浅色 / 深色）。
-   - 采用与 `eh.zgqinc.gq` 相同标准的 Material 3 调色板。
+   - 采用标准 Material 3 调色板。
 
 4. **个人存档与展示系统（`personal/` 文件夹）**：
    - 支持 **「💾 导出个人记录」**：一键生成 `personal_records.json`。
@@ -45,9 +33,9 @@
    - 默认主页定位为 **`bingo.zgqinc.gq`**。
    - 导出打卡图时采用原图全分辨率离线渲染，并自动打上高质感水印横幅（包含网站域名、打卡寄语、BINGO 统计与日期）。
 
-6. **规范的项目目录**：
-   - 根目录下图片全部归整到 `images/`，结构清爽规范。
-   - 包含专属声明页脚，遵循 CC BY-NC-SA 4.0 许可协议。
+6. **轻量纯静态架构**：
+   - 零后端依赖，无需 Node.js 运行时，可在任何静态托管服务或本地直接运行。
+   - 预构建离线 Material Web 组件包，国内与离线环境加载极速。
 
 ---
 
@@ -59,37 +47,35 @@
   - 🌐 **个人主页**：[http://domain.zgqinc.gq](http://domain.zgqinc.gq)
   - ✈️ **Telegram**：[@ZGQinc](https://t.me/ZGQinc)
 
+---
+
 ## 📁 目录规范
 
 ```
 bingo/
-├── images/                      # 68 张宾果与罐子图片统一存放
+├── images/                      # 个人收集的各类宾果与量表原图
 ├── personal/                    # 个人记录文件夹
-│   └── personal_records.json    # 作者个人打卡结果展示数据
+│   └── personal_records.json    # 作者个人打卡结果与存档展示数据
 ├── data/
 │   ├── categories.json          # 分类与图标配置
-│   ├── games.json               # 68 款游戏总览索引库
-│   └── cards/                   # 每款游戏的单独 JSON 配置
+│   ├── games.json               # 游戏总览与索引库
+│   └── cards/                   # 每款游戏的单独网格与数据配置
 ├── css/
 │   └── style.css                # Material 3 样式、毛玻璃、噪点与动效
 ├── js/
-│   ├── app.js                   # 主逻辑、主题跟随、双向交互控制
-│   ├── canvas-renderer.js       # 原图画板、液体填充、手绘印章与全分辨率水印
+│   ├── app.js                   # 核心交互逻辑与视图控制
+│   ├── canvas-renderer.js       # 原图画板、液体填充、印记渲染与水印导出
 │   ├── bingo-logic.js           # 连线算法与规则判定
 │   ├── storage.js               # 本地持久化与 JSON 导入导出
 │   └── material-web.bundle.js   # 离线 Google Material Web 组件库
-├── index.html                   # 主页
-├── server.py                    # 本地调试服务
-├── add_card.py                  # 新增卡片命令行工具
-└── generate_all_cards.py        # 全量数据生成与分类脚本
+├── index.html                   # 网页主入口
+├── LICENSE                      # 开源许可证 (MIT)
+└── README.md                    # 项目说明文档
 ```
 
 ---
 
-## 🚀 启动方式
+## 📄 开源许可证 (License)
 
-```bash
-cd "C:\Users\ZGQ\Documents\antigravity\bingo"
-python server.py
-```
-浏览器访问：[http://localhost:8000](http://localhost:8000)
+- 本项目代码部分遵循 [MIT License](LICENSE) 开源。
+- 本项目收录与整理的图片、游戏模板等素材遵循 [知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)。

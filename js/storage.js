@@ -84,7 +84,7 @@ export const Storage = {
     const defaultSettings = {
       watermarkEnabled: true,
       watermarkSite: 'bingo.zgqinc.gq',
-      watermarkSub: 'ZGQ 的个人宾果收集 · 打卡记录',
+      watermarkSub: '互联网宾果游戏个人收集 · 打卡记录',
       watermarkPos: 'bottom',
       stampStyle: 'circle',
       stampColor: '#e53935',
